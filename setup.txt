@@ -1,3 +1,11 @@
 express@4.18.2
 ejs@3.1.8
 dotenv@16.0.3 //hỗ trợ việc sử dụng file .env để tránh việc fix code cứng (hardcode)
+nodemon@2.0.20 //hỗ trợ việc thay đổi code không cần chạy lại, nếu phát hiện file thay đổi sẽ reload lại server
+
+
+dependencies: Có tác dụng cung cấp các thư viện hỗ trợ cho prod.
+devDependencies: Chỉ có tác dụng khi xây mã nguồn, có tác dụng hỗ trợ dev chứ khi ra production rồi thì sẽ không cần thiết nữa. Vì 
+việc cài đặt devDependencies chỉ làm prod nặng thêm.
+--save-dev 
+--save-exact 

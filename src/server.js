@@ -5,6 +5,8 @@ const app = express();
 const port = process.env.PORT || 8888;
 const hostname = process.env.HOST_NAME;
 
+// config static files
+app.use(express.static(path.join(__dirname, 'public')));
 
 // config template engine
 app.set('views', path.join(__dirname, 'views'));
