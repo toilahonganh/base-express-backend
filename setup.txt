@@ -9,3 +9,7 @@ devDependencies: Chỉ có tác dụng khi xây mã nguồn, có tác dụng h�
 việc cài đặt devDependencies chỉ làm prod nặng thêm.
 --save-dev 
 --save-exact 
+
+
+WHY DOCKER?
+Để code ra sản phẩm và chạy được trên mọi môi trường (không lo xung đột version, môi trường); Build, Ship and
