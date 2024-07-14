@@ -6,40 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <title>Trang chủ</title>
+    <style>
+        .table-container {
+            margin-top: 50px;
+            padding: 15px 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #ccc;
+        }
+    </style>
 </head>
 
 <body>
     <div class="topnav">
-        <a class="active" href="">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+        <a class="active" href="/">Home</a>
+        <a href="/create">Create new user</a>
     </div>
-    <div class="form-add-new">
-        <form action="/create-new-user" method="POST">
-            <fieldset>
-                <legend>ADD NEW USER</legend>
-                <div class="input-group">
-                    <div class="label-layer">
-                        <label>G-mail:</label>
-                    </div>
-                    <input type="text" name="gmail">
-                </div>
-                <div class="input-group">
-                    <div class="label-layer">
-                        <label>Name:</label>
-                    </div>
-                    <input type="text" name="name">
-                </div>
-                <div class="input-group">
-                    <div class="label-layer">
-                        <label>City:</label>
-                    </div>
-                    <input type="text" name="city">
-                </div>
-                <button>Save</button>
-            </fieldset>
-        </form>
+
+    <div class="table-container">
+        <div class="title">List users</div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>G-mail</th>
+                <th>Name</th>
+                <th>City</th>
+            </tr>
+            <tr>
+                <td>Peter</td>
+                <td>Griffin</td>
+                <td>$100</td>
+                <td>$100</td>
+
+            </tr>
+            <tr>
+                <td>Lois</td>
+                <td>Griffin</td>
+                <td>$150</td>
+                <td>$100</td>
+
+            </tr>
+            <tr>
+                <td>Joe</td>
+                <td>Swanson</td>
+                <td>$300</td>
+                <td>$100</td>
+
+            </tr>
+            <tr>
+                <td>Cleveland</td>
+                <td>Brown</td>
+                <td>$250</td>
+                <td>$100</td>
+
+            </tr>
+        </table>
     </div>
 </body>
 
