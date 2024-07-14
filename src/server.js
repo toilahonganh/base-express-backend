@@ -17,19 +17,13 @@ configViewEngine(app);
 // route config
 app.use('/', webRoutes);
 
-
 connection.query(
     'SELECT * FROM Users u',
-    // function (err, results, fields) {
-    //     // console.log('>>>>', results);
-    // }
 )
 
 app.get('/', (req, res) => {
     res.render('sample.ejs');
 });
-
-
 
 app.listen(port, hostname, () => {
     console.log(`Example app listening on port ${port}`);

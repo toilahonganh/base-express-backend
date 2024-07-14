@@ -10,7 +10,17 @@ const getUser = (req, res) => {
 };
 
 const postCreateNewUser = (req, res) => {
-    console.log("req.body", req.body)
+    let email = req.body.gmail;
+    let name = req.body.name;
+    let city = req.body.city;
+
+    connection.query(
+        `INSERT INTO Users (email, name, city) 
+        VALUES (?, ?, ?)`, [email, name, city],
+        function (err, results) {
+            res.send('Created new user. Congratulations!');
+        }
+    )
     res.send("Create new user")
 };
 module.exports = {
