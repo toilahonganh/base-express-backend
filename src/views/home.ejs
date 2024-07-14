@@ -42,43 +42,28 @@
     </div>
 
     <div class="table-container">
-        <div class="title">List users</div>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>G-mail</th>
-                <th>Name</th>
-                <th>City</th>
-            </tr>
-            <tr>
-                <td>Peter</td>
-                <td>Griffin</td>
-                <td>$100</td>
-                <td>$100</td>
+        <%= JSON.stringify(listUsers) %>
+            <div class="title">List users</div>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>G-mail</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>Peter</td>
+                    <td>Griffin</td>
+                    <td>$100</td>
+                    <td>$100</td>
+                    <td>
+                        <Button>Edit</Button>
+                        <Button>Delete</Button>
+                    </td>
 
-            </tr>
-            <tr>
-                <td>Lois</td>
-                <td>Griffin</td>
-                <td>$150</td>
-                <td>$100</td>
-
-            </tr>
-            <tr>
-                <td>Joe</td>
-                <td>Swanson</td>
-                <td>$300</td>
-                <td>$100</td>
-
-            </tr>
-            <tr>
-                <td>Cleveland</td>
-                <td>Brown</td>
-                <td>$250</td>
-                <td>$100</td>
-
-            </tr>
-        </table>
+                </tr>
+            </table>
     </div>
 </body>
 
