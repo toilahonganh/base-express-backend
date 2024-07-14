@@ -8,17 +8,21 @@ const app = express();
 const port = process.env.PORT || 8888;
 const hostname = process.env.HOST_NAME;
 
+app.use(express.json()); // Used to parse JSON bodies
+app.use(express.urlencoded()); //Parse URL-encoded bodies
+
 // config template engine
 configViewEngine(app);
 
 // route config
 app.use('/', webRoutes);
 
+
 connection.query(
     'SELECT * FROM Users u',
-    function (err, results, fields) {
-        console.log('>>>>', results);
-    }
+    // function (err, results, fields) {
+    //     // console.log('>>>>', results);
+    // }
 )
 
 app.get('/', (req, res) => {

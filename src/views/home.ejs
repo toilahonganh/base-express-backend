@@ -10,10 +10,36 @@
 
 <body>
     <div class="topnav">
-        <a class="active" href="#home">Home</a>
+        <a class="active" href="">Home</a>
         <a href="#news">News</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
+    </div>
+    <div class="form-add-new">
+        <form action="/create-new-user" method="POST">
+            <fieldset>
+                <legend>ADD NEW USER</legend>
+                <div class="input-group">
+                    <div class="label-layer">
+                        <label>G-mail:</label>
+                    </div>
+                    <input type="text" name="gmail">
+                </div>
+                <div class="input-group">
+                    <div class="label-layer">
+                        <label>Name:</label>
+                    </div>
+                    <input type="text" name="name">
+                </div>
+                <div class="input-group">
+                    <div class="label-layer">
+                        <label>City:</label>
+                    </div>
+                    <input type="text" name="city">
+                </div>
+                <button>Save</button>
+            </fieldset>
+        </form>
     </div>
 </body>
 
