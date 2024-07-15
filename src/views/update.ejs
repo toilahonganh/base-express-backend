@@ -15,26 +15,32 @@
 
     </div>
     <div class="form-add-new">
-        <form action="/create-new-user" method="POST">
+        <form action="/update-user" method="POST">
             <fieldset>
                 <legend>UPDATE USER INFORMATION</legend>
+                <div class="input-group d-none">
+                    <div class="label-layer">
+                        <label>ID:</label>
+                    </div>
+                    <input type="text" name="userId" value="<%=userUpdate.id  %>" />
+                </div>
                 <div class="input-group">
                     <div class="label-layer">
                         <label>G-mail:</label>
                     </div>
-                    <input type="text" name="gmail" value=<%=userUpdate.email %> />
+                    <input type="text" name="gmail" value="<%=userUpdate.email %>" />
                 </div>
                 <div class="input-group">
                     <div class="label-layer">
                         <label>Name:</label>
                     </div>
-                    <input type="text" name="name" value=<%=userUpdate.name %> />
+                    <input type="text" name="name" value="<%=userUpdate.name %>" />
                 </div>
                 <div class="input-group">
                     <div class="label-layer">
                         <label>City:</label>
                     </div>
-                    <input type="text" name="city" value=<%=userUpdate.city %> />
+                    <input type="text" name="city" value="<%=userUpdate.city %>" />
                 </div>
                 <button>Save</button>
             </fieldset>
