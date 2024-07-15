@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Delete user information</title>
+</head>
+
+<body>
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a class="active" href="/create">Create new user</a>
+
+    </div>
+    <div class="form-add-new">
+        <form action="/delete-user" method="POST">
+            <fieldset>
+                <legend>DELETE USER INFORMATION</legend>
+                <div class="input-group d-none">
+                    <div class="label-layer">
+                        <label>ID:</label>
+                    </div>
+                    <input type="text" name="userId" value="<%=userUpdate.id  %>" />
+                </div>
+                <div class="input-group">
+                    <div class="label-layer" style="width: 100% !important;">
+                        <label>Are your sure to delete this user with g-mail:</label>
+                    </div>
+                    <input type="text" name="gmail" value="<%=userUpdate.email %>" />
+                </div>
+                <button>Confirm</button>
+            </fieldset>
+        </form>
+    </div>
+
+</body>
+
+</html>
