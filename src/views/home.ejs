@@ -42,28 +42,59 @@
     </div>
 
     <div class="table-container">
-        <%= JSON.stringify(listUsers) %>
-            <div class="title">List users</div>
-            <table>
+        <div class="title">List users</div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>G-mail</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Action</th>
+            </tr>
+            <!-- <% for (let i=0; i < listUsers.length; i++) { %>
                 <tr>
-                    <th>ID</th>
-                    <th>G-mail</th>
-                    <th>Name</th>
-                    <th>City</th>
-                    <th>Action</th>
-                </tr>
-                <tr>
-                    <td>Peter</td>
-                    <td>Griffin</td>
-                    <td>$100</td>
-                    <td>$100</td>
+                    <td>
+                        <%= listUsers[i].id %>
+                    </td>
+                    <td>
+                        <%= listUsers[i].email %>
+                    </td>
+                    <td>
+                        <%= listUsers[i].name %>
+                    </td>
+                    <td>
+                        <%= listUsers[i].city %>
+                    </td>
                     <td>
                         <Button>Edit</Button>
                         <Button>Delete</Button>
                     </td>
 
                 </tr>
-            </table>
+                <% } %> -->
+
+            <% listUsers.forEach(function(user, index) { %>
+                <tr>
+                    <td>
+                        <%= user.id %>
+                    </td>
+                    <td>
+                        <%= user.email %>
+                    </td>
+                    <td>
+                        <%= user.name %>
+                    </td>
+                    <td>
+                        <%= user.city %>
+                    </td>
+                    <td>
+                        <a href="/update/<%= user.id %>">Edit</a>
+                        <Button>Delete</Button>
+                    </td>
+
+                </tr>
+                <% }) %>
+        </table>
     </div>
 </body>
 
