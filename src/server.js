@@ -17,14 +17,14 @@ configViewEngine(app);
 // route config
 app.use('/', webRoutes);
 
-connection.query(
-    'SELECT * FROM Users u',
-)
+(async () => {
+    try {
+        await connection();
+        app.listen(port, hostname, () => {
+            console.log(`Backend zero app listening on port ${port}`);
+        });
+    } catch (error) {
+        console.log("ERROR CONNECT TO DB", error)
+    }
+})()
 
-app.get('/', (req, res) => {
-    res.render('sample.ejs');
-});
-
-app.listen(port, hostname, () => {
-    console.log(`Example app listening on port ${port}`);
-});
