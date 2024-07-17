@@ -33,7 +33,7 @@ const getCreatePage = (req, res) => {
 }
 const getUpdatePage = async (req, res) => {
     const userId = req.params.id;
-    let user = await getUserById(userId);
+    let user = await User.findById(userId).exec();
     res.render('update.ejs', { userUpdate: user })
 }
 
@@ -43,20 +43,27 @@ const postUpdateUser = async (req, res) => {
     let city = req.body.city;
     let userId = req.body.userId;
 
-    await updateUserById(email, name, city, userId);
+    // await updateUserById(email, name, city, userId);
+    // await User.updateOne({ email: email }, { name: name }, { city: city });
+    await User.updateOne({ _id: userId }, { email: email, ame: name, city: city });
 
     res.redirect('/');
 };
 
 const postDeleteUser = async (req, res) => {
     const userId = req.params.id;
-    let user = await getUserById(userId);
+    // let user = await getUserById(userId);
+    let user = await User.findById(userId).exec();
+
     res.render('delete.ejs', { userUpdate: user })
 }
 const postHandleRemoveUser = async (req, res) => {
     const userId = req.body.userId;
-    await deleteUserById(userId);
-
+    // await deleteUserById(userId);
+    let results = await User.deleteOne({
+        _id: userId
+    })
+    console.log("Delete count", results);
     res.redirect('/');
 }
 module.exports = {

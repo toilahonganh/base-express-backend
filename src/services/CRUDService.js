@@ -1,4 +1,5 @@
 const connection = require('../config/database');
+const User = require('../models/user')
 
 const getAllUsers = async () => {
     let [results, fields] = await connection.query('SELECT * FROM Users');
@@ -11,9 +12,10 @@ const getUserById = async (userId) => {
     return user;
 }
 const updateUserById = async (email, name, city, userId) => {
-    let [results, fields] = await connection.query(
-        `UPDATE Users SET email=?, name=?, city=? WHERE id=?`, [email, name, city, userId]
-    );
+    // let [results, fields] = await connection.query(
+    //     `UPDATE Users SET email=?, name=?, city=? WHERE id=?`, [email, name, city, userId]
+    // );
+    await User.updateOne({ email: email }, { name: name }, { city: city });
     return results;
 }
 const deleteUserById = async (userId) => {
