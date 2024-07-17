@@ -1,9 +1,11 @@
 const { render } = require('ejs');
+const User = require('../models/user')
 const connection = require('../config/database');
 const { getAllUsers, getUserById, updateUserById, deleteUserById } = require('../services/CRUDService');
 
 const getHomePage = async (req, res) => {
-    let results = await getAllUsers();
+    // let results = await getAllUsers();
+    let results = [];
     return res.render('home.ejs', { listUsers: results });
 };
 
@@ -15,13 +17,16 @@ const postCreateNewUser = async (req, res) => {
     let email = req.body.gmail;
     let name = req.body.name;
     let city = req.body.city;
+    // MONGOOSE QUERRY
+    await User.create({
+        email: email,
+        name: name,
+        city: city
+    })
+    console.log("Create successfully")
 
-    let [results, fields] = await connection.query(
-        `INSERT INTO Users (email, name, city) VALUES (?, ?, ?)`, [email, name, city],
-    );
-    console.log("CHECK", results);
 
-    res.send(results)
+    res.send("Create successfully")
 };
 const getCreatePage = (req, res) => {
     res.render('create.ejs')
