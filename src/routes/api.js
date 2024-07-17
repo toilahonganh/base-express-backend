@@ -1,12 +1,13 @@
 const express = require('express');
 const routerAPIs = express.Router();
-const { getUsersAPI } = require('../controllers/apiController');
+const { getUsersAPI, postCreateNewUserAPI, putUpdateUserAPI } = require('../controllers/apiController');
 const app = express();
 
-routerAPIs.get('/', (req, res) => {
-    res.send("Hello apis");
-});
 routerAPIs.get('/users', getUsersAPI);
+routerAPIs.post('/users', postCreateNewUserAPI);
+routerAPIs.put('/users', putUpdateUserAPI);
+
+
 
 
 

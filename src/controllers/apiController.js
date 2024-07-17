@@ -8,6 +8,38 @@ const getUsersAPI = async (req, res) => {
         data: results
     })
 };
+
+const postCreateNewUserAPI = async (req, res) => {
+    let email = req.body.gmail;
+    let name = req.body.name;
+    let city = req.body.city;
+
+    let user = await User.create({
+        email: email,
+        name: name,
+        city: city
+    })
+
+    return res.status(201).json({
+        EC: 0,
+        data: user
+    })
+
+};
+
+const putUpdateUserAPI = async (req, res) => {
+    let email = req.body.gmail;
+    let name = req.body.name;
+    let city = req.body.city;
+    let userId = req.body.userId;
+
+    let user = await User.updateOne({ _id: userId }, { email: email, name: name, city: city });
+    return res.status(201).json({
+        EC: 0,
+        data: user
+    })
+};
+
 module.exports = {
-    getUsersAPI
+    getUsersAPI, postCreateNewUserAPI, putUpdateUserAPI
 };
