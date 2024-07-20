@@ -1,5 +1,5 @@
 const { uploadSingleFile } = require('../services/fileService');
-const { createCustomerService, createArrayCustomerService, getAllCustomersService, putUpdateCustomerService, deleteCustomerService } = require('../services/customerService');
+const { createCustomerService, createArrayCustomerService, getAllCustomersService, putUpdateCustomerService, deleteCustomerService, deleteCustomerSoftwareService } = require('../services/customerService');
 
 const postCreateCustomer = async (req, res) => {
     let { name, address, phone, email, image, description } = req.body;

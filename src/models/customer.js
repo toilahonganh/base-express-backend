@@ -13,7 +13,7 @@ const customerSchema = new mongoose.Schema({
     description: String,
 }, { timestamps: true });
 
-customerSchema.plugin(mongoose_delete); // set deleted for an object was deleted, if deleted equals false, it's several
+customerSchema.plugin(mongoose_delete, { overrideMethods: 'all' }); // set deleted for an object was deleted, if deleted equals false, it's several
 
 const Customer = mongoose.model("Customer", customerSchema);
 

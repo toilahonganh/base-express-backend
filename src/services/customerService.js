@@ -48,10 +48,12 @@ module.exports = {
     },
     deleteCustomerService: async (id) => {
         try {
-            let result = await Customer.deleteOne({ _id: id });
+            let result = await Customer.deleteById({ _id: id });
+            return result;
         } catch (error) {
             console.log(error);
             return null;
         }
     }
+
 }
