@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const connection = require('./config/database');
 const path = require('path');
+const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
 const configViewEngine = require('./config/viewEngine');
 const webRoutes = require('./routes/web');
@@ -12,6 +13,8 @@ const hostname = process.env.HOST_NAME;
 
 // config file upload (midleware)
 app.use(fileUpload());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json()); // Used to parse JSON bodies
 app.use(express.urlencoded()); //Parse URL-encoded bodies
 // config template engine

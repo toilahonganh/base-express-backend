@@ -1,16 +1,20 @@
 const mongoose = require('mongoose');
+const mongoose_delete = require('mongoose-delete');
 
 const customerSchema = new mongoose.Schema({
     name: {
         type: String,
-        require: true
+        required: true
     },
     address: String,
     phone: String,
     email: String,
     image: String,
     description: String,
-}, { timestamps: true })
+}, { timestamps: true });
+
+customerSchema.plugin(mongoose_delete); // set deleted for an object was deleted, if deleted equals false, it's several
+
 const Customer = mongoose.model("Customer", customerSchema);
 
 
