@@ -11,7 +11,14 @@ const customerSchema = new mongoose.Schema({
     email: String,
     image: String,
     description: String,
-}, { timestamps: true });
+}, {
+    timestamps: true,
+    // statics: {
+    //     findByHoiDanIt(name) {
+    //         return this.find({ name: new RegExp(name, 'i') })
+    //     }
+    // }
+},);
 
 customerSchema.plugin(mongoose_delete, { overrideMethods: 'all' }); // set deleted for an object was deleted, if deleted equals false, it's several
 

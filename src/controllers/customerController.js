@@ -1,5 +1,6 @@
 const { uploadSingleFile } = require('../services/fileService');
-const { createCustomerService, createArrayCustomerService, getAllCustomersService, putUpdateCustomerService, deleteCustomerService, deleteCustomerSoftwareService } = require('../services/customerService');
+const { createCustomerService, createArrayCustomerService, getAllCustomersService, putUpdateCustomerService, deleteCustomerService, deleteArrayCustomerService } = require('../services/customerService');
+
 
 const postCreateCustomer = async (req, res) => {
     let { name, address, phone, email, image, description } = req.body;
@@ -39,21 +40,23 @@ const postCreateArrayCustomer = async (req, res) => {
     }
 }
 const getAllCustomers = async (req, res) => {
-    let allCustomer = await getAllCustomersService(res, req);
 
-    try {
-        return res.status(200).json({
-            EC: 0,
-            data: allCustomer
-        })
 
-    } catch (error) {
-        return res.status(200).json({
-            EC: -1,
-            data: allCustomer
-        })
+    let limit = req.query.limit;
+    let page = req.query.page;
+    let name = req.query.name;
+    let allCustomer = null;
+    if (limit && page && name) {
+        allCustomer = await getAllCustomersService(limit, page, name, req.query);
+        // console.log("req.query", req.query)
+
+    } else {
+        allCustomer = await getAllCustomersService();
     }
-    return res.send(allCustomer);
+    return res.status(200).json({
+        EC: 0,
+        data: allCustomer,
+    })
 }
 
 const putUpdateCustomer = async (req, res) => {
@@ -72,6 +75,17 @@ const deleteCustomer = async (req, res) => {
         data: result
     })
 }
+
+const deleteArrayCustomer = async (req, res) => {
+    let ids = req.body.customersId;
+    console.log("CHECK IDS", ids);
+    let result = await deleteArrayCustomerService(ids);
+    return res.status(200).json({
+        EC: 0,
+        data: result
+    })
+}
+
 module.exports = {
-    postCreateCustomer, postCreateArrayCustomer, getAllCustomers, putUpdateCustomer, deleteCustomer
+    postCreateCustomer, postCreateArrayCustomer, getAllCustomers, putUpdateCustomer, deleteCustomer, deleteArrayCustomer
 }
