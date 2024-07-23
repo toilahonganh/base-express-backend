@@ -1,4 +1,5 @@
 require('dotenv').config()
+const { MongoClient } = require('mongodb');
 const express = require('express');
 const connection = require('./config/database');
 const path = require('path');
@@ -29,6 +30,17 @@ app.use('/v1/api/', apiRoutes);
 (async () => {
     try {
         await connection();
+        const url = process.env.DB_HOST_WITH_DRIVER;
+        const client = new MongoClient(url);
+
+        const dbName = process.env.DB_NAME;
+
+        await client.connect();
+        console.log('Connected successfully to server');
+        const db = client.db(dbName);
+        const collection = db.collection('customers');
+
+
         app.listen(port, hostname, () => {
             console.log(`Backend zero app listening on port ${port}`);
         });
